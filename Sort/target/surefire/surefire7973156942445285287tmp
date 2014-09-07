@@ -1,0 +1,9 @@
+#surefire
+#Sun Sep 07 14:32:32 JST 2014
+maven.ext.class.path=C\:\\Program Files\\NetBeans 8.0\\java\\maven-nblib\\netbeans-eventspy.jar;C\:\\Program Files\\NetBeans 8.0\\java\\maven-nblib\\netbeans-eventspy.jar
+user.dir=D\:\\project\\JavaArglithm\\Sort
+file.encoding=UTF-8
+localRepository=C\:\\Users\\manabu\\.m2\\repository
+netbeansProjectMappings=
+basedir=D\:\\project\\JavaArglithm\\Sort
+test=com.mycompany.sort.ArrayBubTest\#testBubbleSort_ramdom

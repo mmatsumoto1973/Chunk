@@ -1,0 +1,23 @@
+#surefire
+#Sun Sep 07 14:31:38 JST 2014
+testClassesDirectory=D\:\\project\\JavaArglithm\\Sort\\target\\test-classes
+forkMode=once
+classPathUrl.3=C\:\\Users\\manabu\\.m2\\repository\\org\\hamcrest\\hamcrest-core\\1.1\\hamcrest-core-1.1.jar
+classPathUrl.2=C\:\\Users\\manabu\\.m2\\repository\\junit\\junit\\4.10\\junit-4.10.jar
+useManifestOnlyJar=true
+classPathUrl.1=D\:\\project\\JavaArglithm\\Sort\\target\\classes
+classPathUrl.0=D\:\\project\\JavaArglithm\\Sort\\target\\test-classes
+reportsDirectory=D\:\\project\\JavaArglithm\\Sort\\target\\surefire-reports
+providerConfiguration=org.apache.maven.surefire.junit4.JUnit4Provider
+testSuiteDefinitionTestSourceDirectory=D\:\\project\\JavaArglithm\\Sort\\src\\test\\java
+requestedTest=com.mycompany.sort.ArrayBubTest
+surefireClassPathUrl.1=C\:\\Users\\manabu\\.m2\\repository\\org\\apache\\maven\\surefire\\surefire-api\\2.10\\surefire-api-2.10.jar
+surefireClassPathUrl.0=C\:\\Users\\manabu\\.m2\\repository\\org\\apache\\maven\\surefire\\surefire-junit4\\2.10\\surefire-junit4-2.10.jar
+runOrder=filesystem
+useSystemClassLoader=true
+isTrimStackTrace=true
+enableAssertions=true
+requestedTestMethod=testBubbleSort_ramdom
+failIfNoTests=true
+includes0=**/com/mycompany/sort/ArrayBubTest.java
+childDelegation=false
