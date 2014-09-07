@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="0" name="com.mycompany.sort.ArrayShTest" time="0.366" errors="1" skipped="0">
+<testsuite tests="2" failures="0" name="com.mycompany.sort.ArrayShTest" time="0.007" errors="1" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_05\jre\bin"/>
@@ -61,7 +61,6 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.mycompany.sort.ArrayShTest" name="testShellSort" time="0.363"/>
   <testcase classname="com.mycompany.sort.ArrayShTest" name="testDisplay" time="0">
     <error type="java.lang.NullPointerException">java.lang.NullPointerException
 	at com.mycompany.sort.ArrayShTest.testDisplay(ArrayShTest.java:49)
@@ -102,4 +101,5 @@
     <system-out>display
 </system-out>
   </testcase>
+  <testcase classname="com.mycompany.sort.ArrayShTest" name="testShellSort" time="0.005"/>
 </testsuite>

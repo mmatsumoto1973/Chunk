@@ -1,0 +1,13 @@
+#surefire
+#Sun Sep 07 23:23:01 JST 2014
+netbeansProjectMappings=
+jpda.address=49175
+maven.ext.class.path=C\:\\Program Files\\NetBeans 8.0\\java\\maven-nblib\\netbeans-eventspy.jar
+file.encoding=UTF-8
+jpda.listen=true
+forkMode=once
+user.dir=D\:\\project\\JavaArglithm\\Sort
+localRepository=C\:\\Users\\manabu\\.m2\\repository
+test=com.mycompany.sort.RandomNumericSortTest
+basedir=D\:\\project\\JavaArglithm\\Sort
+maven.surefire.debug=-Xdebug -Xrunjdwp\:transport\=dt_socket,server\=n,address\=49175

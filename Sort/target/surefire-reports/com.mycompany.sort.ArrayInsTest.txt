@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: com.mycompany.sort.ArrayInsTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 8.599 sec <<< FAILURE!
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.005 sec <<< FAILURE!
 testInsert(com.mycompany.sort.ArrayInsTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NullPointerException
 	at com.mycompany.sort.ArrayInsTest.testInsert(ArrayInsTest.java:50)

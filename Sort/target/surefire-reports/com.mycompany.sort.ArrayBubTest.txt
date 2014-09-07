@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.mycompany.sort.ArrayBubTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 29.506 sec <<< FAILURE!
-testInsert(com.mycompany.sort.ArrayBubTest)  Time elapsed: 0.013 sec  <<< ERROR!
+Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 23.998 sec <<< FAILURE!
+testInsert(com.mycompany.sort.ArrayBubTest)  Time elapsed: 0.007 sec  <<< ERROR!
 java.lang.NullPointerException
 	at com.mycompany.sort.ArrayBubTest.testInsert(ArrayBubTest.java:50)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)

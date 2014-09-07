@@ -6,7 +6,7 @@
 
 package com.mycompany.sort;
 
-import java.io.BufferedReader;	
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
@@ -24,29 +24,54 @@ public class RandomNumericSort {
 	static private long[] theArray = new long [MAX_COUNT];
 	static private int nElems = 0;
 
+	static private String strInputFile;
+	static private String strOutputFile;
+    static private boolean isOrderByDesc;
+	
 	public static void main(String args[]){
+
+		if (!setArgument(args)) {
+			System.out.println("Usage : inputfile outputfile [order: asc/desc]");
+			return;
+		}
 
 		long start, end;
 		
-
-		// Quick Sort
-		inputNonSortedData("D:\\work\\自分\\仕事\\ソースコンテスト\\sort\\random.txt");
+		inputNonSortedData(strInputFile);
 		start = System.currentTimeMillis();
 		quickSort();
 		end = System.currentTimeMillis();
 		System.out.printf("Quick Sort is [%d] milisecond.\n", (end - start) );
-		outputSortedData("D:\\work\\自分\\仕事\\ソースコンテスト\\sort\\random_quicksort.txt");
+		outputSortedData(strOutputFile);
 
-		// Shell Sort
-		inputNonSortedData("D:\\work\\自分\\仕事\\ソースコンテスト\\sort\\random.txt");
-		start = System.currentTimeMillis();
-		shellSort();
-		end = System.currentTimeMillis();
-		System.out.printf("Shell Sort is [%d] milisecond.\n", (end - start) );
-		outputSortedData("D:\\work\\自分\\仕事\\ソースコンテスト\\sort\\random_shellsort.txt");
-		
 	}
    
+	/**
+	 * 引数設定 
+	 * 
+	 * @param args 
+	 */
+	private static boolean setArgument(String args[]) {
+		try {
+			strInputFile = args[0];
+			strOutputFile = args[1];
+			if (args.length == 3){
+				if (args[2].equalsIgnoreCase("asc")) {
+					isOrderByDesc = false;
+				} else if (args[2].equalsIgnoreCase("desc")) {
+					isOrderByDesc = true;
+				} else {
+					return false;
+				}
+			} else {
+				isOrderByDesc = false;
+			}
+		} catch(Exception e) {
+			return false;
+		}
+		return true;
+	}
+
 	/**
 	 * ソート前のデータ読み込み
 	 * 
@@ -246,7 +271,7 @@ public class RandomNumericSort {
 				theArray[inner] = temp;
 				}  // end for
 			 h = (h-1) / 3;              // decrease h
-		  }  // end while(h>0)
-	}  // end shellSort()
+		  }
+	}
 
 }

@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: com.mycompany.sort.ArrayMergeTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 9.079 sec <<< FAILURE!
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.061 sec <<< FAILURE!
 testDisplay(com.mycompany.sort.ArrayMergeTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NullPointerException
 	at com.mycompany.sort.ArrayMergeTest.testDisplay(ArrayMergeTest.java:49)

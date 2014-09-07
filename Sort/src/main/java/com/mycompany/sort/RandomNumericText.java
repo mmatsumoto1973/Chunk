@@ -20,7 +20,7 @@ import org.apache.commons.lang.RandomStringUtils;
 public class RandomNumericText {
 
 	public static void main(String args[]){
-		createFile("D:\\work\\自分\\仕事\\ソースコンテスト\\sort\\random.txt", 10, 10000000);
+		createFile("D:\\Study\\JavaAlgorithm\\random.txt", 10, 1000000);
 	}
 	
 	static void createFile(String filePath, int digits, int lines) {
