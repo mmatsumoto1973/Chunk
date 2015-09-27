@@ -1,0 +1,19 @@
+<html>
+<head>
+<link rel="stylesheet" href="stylesheets/template.css" type="text/css">
+<title>OAuth2.0 Sample</title>
+<h1>Welcome to the OAuth2.0 test client</h1>
+<script src="callServlet.js">
+</script>
+</head>
+<body>
+<p>This web application will redirect you to the endpoint against whom you wish to test the OAuth2.0 flow.
+Make sure you have put in correct values in the <strong>Oauth2Client.properties</strong> configuration file.  </p>
+<table>
+
+<tr><td>Authorization code grant : Web Apps (Google Drive API) (Use HTTP/REST)</td><td><input type="button" id="webapp_rest" name="webapp_rest" value="Start Test" onclick="callAuthCode_Rest('token')"></td></tr>
+<tr><td>Authorization code grant : Web Apps (Google Drive API) (Use Client libraries)</td><td><input type="button" id="webapp_cl" name="webapp_cl" value="Start Test" onclick="callAuthCode_GoogleCL_Web('token')"></td></tr>
+<tr><td>Client Credentials : Service Account (Google Drive API) (Use Client libraries)</td><td><input type="button" id="webapp_cl_sa" name="webapp_cl_sa" value="Start Test" onclick="callClientCredencialGoogleCL_SA()"></td></tr>
+</table>
+</body>
+</html>

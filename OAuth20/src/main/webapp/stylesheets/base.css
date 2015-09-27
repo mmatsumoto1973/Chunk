@@ -1,0 +1,57 @@
+@charset "Shift_Jis";
+
+body{
+	margin:0;
+	padding:0;
+	background-color:#dcdcdc;
+}
+
+#wrapper{
+	margin:0;
+	padding:0;
+	background-color:#ffffff;
+}
+
+#header{
+	margin:0;
+	padding:0;
+	background-color:#eee8aa;
+}
+
+#contents{
+	width:100%;
+	margin:0;
+	padding:0;
+}
+
+div.pic{
+	margin:10px;
+	padding:5px;
+	float:left;
+	border:1px solid #cccccc;
+}
+
+div.pic img{
+	display:block;
+	width: 300px;
+	height: 200px;
+}
+
+#contents:after{
+content:".";
+display:block;
+height:0;
+clear:both;
+visibility:hidden;
+}
+
+#footer{
+	margin:0;
+	padding:0;
+	background-color:#eee8aa;
+}
+
+p{
+	margin:0;
+	padding:10px;
+}
