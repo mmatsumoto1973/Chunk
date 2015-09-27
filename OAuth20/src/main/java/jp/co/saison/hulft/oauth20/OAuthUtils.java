@@ -1,6 +1,5 @@
 package jp.co.saison.hulft.oauth20;
 
-import jp.co.saison.hulft.oauth20.OAuthConstants;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -72,6 +71,12 @@ public class OAuthUtils {
 				.get(OAuthConstants.ACCESS_TYPE_KEY));
 		oauthDetails.setAccessTypeValue((String) config
 				.get(OAuthConstants.ACCESS_TYPE_VALUE));
+		
+		// proxy setting
+		oauthDetails.setProxyHost(config.getProperty(OAuthConstants.PROXY_HOST));
+		oauthDetails.setProxyPort(config.getProperty(OAuthConstants.PROXY_PORT));
+		oauthDetails.setProxyUserName(config.getProperty(OAuthConstants.PROXY_USERNAME));
+		oauthDetails.setProxyUserPassword(config.getProperty(OAuthConstants.PROXY_USERPASSWORD));
 
 		return oauthDetails;
 	}

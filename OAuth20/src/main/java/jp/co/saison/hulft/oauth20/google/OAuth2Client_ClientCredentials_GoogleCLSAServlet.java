@@ -125,7 +125,7 @@ public class OAuth2Client_ClientCredentials_GoogleCLSAServlet extends HttpServle
 			
 			// プロパティファイルのパスを取得する
 			ServletContext context = this.getServletContext();
-			String keyfilePath = context.getRealPath(OAuthConstants.KEY_FILE_PATH);
+			String keyfilePath = context.getRealPath(OAuthConstants.SERVICE_KEYFILE_PATH);
 			
 			// Build service account credential.
 			GoogleCredential credential = new GoogleCredential.Builder().setTransport(httpTransport)

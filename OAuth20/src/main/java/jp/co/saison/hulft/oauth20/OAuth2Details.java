@@ -21,6 +21,11 @@ public class OAuth2Details {
 	private String requestServerUrl;
 	private boolean isAccessTokenRequest;
 
+	// proxy setting
+	private String proxyHost;
+	private String proxyPort;
+	private String proxyUserName;
+	private String proxyUserPassword;
 
 
 	public String getTokenEndpointUrl() {
@@ -137,5 +142,61 @@ public class OAuth2Details {
 	}
 	public void setRequestServerUrl(String requestServerUrl) {
 		this.requestServerUrl = requestServerUrl;
+	}
+
+	/**
+	 * @return the proxyHost
+	 */
+	public String getProxyHost() {
+		return proxyHost;
+	}
+
+	/**
+	 * @param proxyHost the proxyHost to set
+	 */
+	public void setProxyHost(String proxyHost) {
+		this.proxyHost = proxyHost;
+	}
+
+	/**
+	 * @return the proxyPort
+	 */
+	public String getProxyPort() {
+		return proxyPort;
+	}
+
+	/**
+	 * @param proxyPort the proxyPort to set
+	 */
+	public void setProxyPort(String proxyPort) {
+		this.proxyPort = proxyPort;
+	}
+
+	/**
+	 * @return the proxyUserName
+	 */
+	public String getProxyUserName() {
+		return proxyUserName;
+	}
+
+	/**
+	 * @param proxyUsername the proxyUserName to set
+	 */
+	public void setProxyUserName(String proxyUsername) {
+		this.proxyUserName = proxyUsername;
+	}
+
+	/**
+	 * @return the proxyUserPassword
+	 */
+	public String getProxyUserPassword() {
+		return proxyUserPassword;
+	}
+
+	/**
+	 * @param proxyPassword the proxyUserPassword to set
+	 */
+	public void setProxyUserPassword(String proxyPassword) {
+		this.proxyUserPassword = proxyPassword;
 	}
 }

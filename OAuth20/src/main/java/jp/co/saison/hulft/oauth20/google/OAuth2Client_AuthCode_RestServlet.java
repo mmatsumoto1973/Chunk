@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
+import javax.inject.Inject;
 import javax.json.stream.JsonParser;
 import javax.json.stream.JsonParser.Event;
 import javax.servlet.ServletException;
@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import jp.co.saison.hulft.oauth20.OAuth2Details;
 import jp.co.saison.hulft.oauth20.OAuthConstants;
+import jp.co.saison.hulft.oauth20.OAuthSystem;
 import jp.co.saison.hulft.oauth20.OAuthUtils;
 
 /**
@@ -21,6 +22,9 @@ import jp.co.saison.hulft.oauth20.OAuthUtils;
  */
 public class OAuth2Client_AuthCode_RestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+	@Inject
+	OAuthSystem oauthSystem;
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -38,11 +42,7 @@ public class OAuth2Client_AuthCode_RestServlet extends HttpServlet {
 		String caller = request.getParameter(OAuthConstants.CALLER);
 		String code = request.getParameter(OAuthConstants.CODE);
 
-		//Load the properties file
-		Properties config = OAuthUtils.getClientConfigProps(OAuthConstants.CONFIG_FILE_PATH);
-
-		//Generate the OAuthDetails bean from the config properties file
-		OAuth2Details oauthDetails = OAuthUtils.createOAuthDetails(config);
+		OAuth2Details oauthDetails = oauthSystem.getOauthDetails();
 
 		//Validate Input
 		List<String> invalidProps = OAuthUtils.validateInput(oauthDetails);

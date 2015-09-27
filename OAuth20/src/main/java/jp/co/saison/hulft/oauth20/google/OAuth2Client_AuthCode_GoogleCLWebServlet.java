@@ -11,18 +11,21 @@ import com.google.api.services.drive.DriveScopes;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Properties;
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import jp.co.saison.hulft.oauth20.OAuth2Details;
-import jp.co.saison.hulft.oauth20.OAuthConstants;
+import jp.co.saison.hulft.oauth20.OAuthSystem;
 import jp.co.saison.hulft.oauth20.OAuthUtils;
 
 /**
  * Authorization Code による認可を Google Client Library によって行うクライアントクラス
  */
 public class OAuth2Client_AuthCode_GoogleCLWebServlet extends AbstractAuthorizationCodeServlet {
+
+	@Inject
+	OAuthSystem oauthSystem;
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -45,10 +48,7 @@ public class OAuth2Client_AuthCode_GoogleCLWebServlet extends AbstractAuthorizat
 
   @Override
   protected AuthorizationCodeFlow initializeFlow() throws IOException {
-	//Load the properties file
-	Properties config = OAuthUtils.getClientConfigProps(OAuthConstants.CONFIG_FILE_PATH);
-	//Generate the OAuthDetails bean from the config properties file
-	OAuth2Details oauthDetails = OAuthUtils.createOAuthDetails(config);
+	OAuth2Details oauthDetails = oauthSystem.getOauthDetails();
 	//Validate Input
 	List<String> invalidProps = OAuthUtils.validateInput(oauthDetails);
 	if(invalidProps!=null && invalidProps.size() == 0){
