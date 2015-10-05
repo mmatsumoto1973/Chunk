@@ -37,16 +37,19 @@ public class OAuthConstants {
 	public static final String XML_CONTENT = "application/xml";
 	public static final String URL_ENCODED_CONTENT = "application/x-www-form-urlencoded";
 
-	public static final String MY_ACCOUT_EMAIL  = "m.matsumoto.1973@gmail.com";
-	public static final String SERVICE_KEYFILE_PATH = "WEB-INF/key.p12";
-	public static final String SERVICE_ACCOUNT_EMAIL = "975499950625-80st861l5fhq2go5a704apqcdk4rgo1i@developer.gserviceaccount.com";
-	public static final String SERVICE_APPNAME  = "matsumoto-service";
 
 	// proxy setting
 	public static final String PROXY_HOST  = "proxy_host";
 	public static final String PROXY_PORT  = "proxy_port";
 	public static final String PROXY_USERNAME  = "proxy_username";
 	public static final String PROXY_USERPASSWORD  = "proxy_userpassword";
+
+	// google service info
+	public static final String GOOGLE_MY_ACCOUNT_EMAIL  = "google_my_account_email";
+	public static final String GOOGLE_SERVICE_ACCOUNT_EMAIL  = "google_service_account_email";
+	public static final String GOOGLE_SERVICE_APPNAME  = "google_service_appname";
+	public static final String GOOGLE_SERVICE_KEYFILE_PATH  = "google_service_keyfile_path";
+
 
 	public static final int HTTP_OK = 200;
 	public static final int HTTP_FORBIDDEN = 403;

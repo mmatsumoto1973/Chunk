@@ -27,6 +27,12 @@ public class OAuth2Details {
 	private String proxyUserName;
 	private String proxyUserPassword;
 
+	// google service info
+	private String googleMyAccountEmail;
+	private String googleServiceAccountEmail;
+	private String googleServiceAppName;
+	private String googleServiceKeyfilePath;
+
 
 	public String getTokenEndpointUrl() {
 		return tokenEndpointUrl;
@@ -198,5 +204,61 @@ public class OAuth2Details {
 	 */
 	public void setProxyUserPassword(String proxyPassword) {
 		this.proxyUserPassword = proxyPassword;
+	}
+
+	/**
+	 * @return the googleMyAccountEmail
+	 */
+	public String getGoogleMyAccountEmail() {
+		return googleMyAccountEmail;
+	}
+
+	/**
+	 * @param googleMyAccountEmail the googleMyAccountEmail to set
+	 */
+	public void setGoogleMyAccountEmail(String googleMyAccountEmail) {
+		this.googleMyAccountEmail = googleMyAccountEmail;
+	}
+
+	/**
+	 * @return the googleServiceAccountEmail
+	 */
+	public String getGoogleServiceAccountEmail() {
+		return googleServiceAccountEmail;
+	}
+
+	/**
+	 * @param googleServiceAccountEmail the googleServiceAccountEmail to set
+	 */
+	public void setGoogleServiceAccountEmail(String googleServiceAccountEmail) {
+		this.googleServiceAccountEmail = googleServiceAccountEmail;
+	}
+
+	/**
+	 * @return the googleServiceAppName
+	 */
+	public String getGoogleServiceAppName() {
+		return googleServiceAppName;
+	}
+
+	/**
+	 * @param googleServiceAppName the googleServiceAppName to set
+	 */
+	public void setGoogleServiceAppName(String googleServiceAppName) {
+		this.googleServiceAppName = googleServiceAppName;
+	}
+
+	/**
+	 * @return the googleServiceKeyfilePath
+	 */
+	public String getGoogleServiceKeyfilePath() {
+		return googleServiceKeyfilePath;
+	}
+
+	/**
+	 * @param googleServiceKeyfilePath the googleServiceKeyfilePath to set
+	 */
+	public void setGoogleServiceKeyfilePath(String googleServiceKeyfilePath) {
+		this.googleServiceKeyfilePath = googleServiceKeyfilePath;
 	}
 }

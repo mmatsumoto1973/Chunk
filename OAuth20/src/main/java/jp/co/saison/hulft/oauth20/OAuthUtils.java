@@ -78,6 +78,12 @@ public class OAuthUtils {
 		oauthDetails.setProxyUserName(config.getProperty(OAuthConstants.PROXY_USERNAME));
 		oauthDetails.setProxyUserPassword(config.getProperty(OAuthConstants.PROXY_USERPASSWORD));
 
+		// google service info
+		oauthDetails.setGoogleMyAccountEmail(config.getProperty(OAuthConstants.GOOGLE_MY_ACCOUNT_EMAIL));
+		oauthDetails.setGoogleServiceAccountEmail(config.getProperty(OAuthConstants.GOOGLE_SERVICE_ACCOUNT_EMAIL));
+		oauthDetails.setGoogleServiceAppName(config.getProperty(OAuthConstants.GOOGLE_SERVICE_APPNAME));
+		oauthDetails.setGoogleServiceKeyfilePath(config.getProperty(OAuthConstants.GOOGLE_SERVICE_KEYFILE_PATH));
+
 		return oauthDetails;
 	}
 

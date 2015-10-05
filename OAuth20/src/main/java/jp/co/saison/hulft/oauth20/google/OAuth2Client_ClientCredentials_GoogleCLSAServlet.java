@@ -12,19 +12,19 @@ import com.google.api.services.drive.model.Permission;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.security.GeneralSecurityException;
-import java.text.SimpleDateFormat;
 import java.util.Collections;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.inject.Inject;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import jp.co.saison.hulft.oauth20.OAuthConstants;
+import jp.co.saison.hulft.oauth20.OAuth2Details;
+import jp.co.saison.hulft.oauth20.OAuthSystem;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -34,6 +34,9 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
  * Client Credencialsによる認可を Google Client Library によって行うクライアントクラス
  */
 public class OAuth2Client_ClientCredentials_GoogleCLSAServlet extends HttpServlet {
+
+	@Inject
+	OAuthSystem oauthSystem;
 
 	@Override
 	public void doPost(HttpServletRequest req, 
@@ -50,6 +53,8 @@ public class OAuth2Client_ClientCredentials_GoogleCLSAServlet extends HttpServle
 		upload.setSizeMax(-1);
 		upload.setHeaderEncoding("Windows-31J");
 		try {
+			OAuth2Details oauthDetails = oauthSystem.getOauthDetails();
+
 			List list = upload.parseRequest(req);
 			
 			Iterator iterator = list.iterator();
@@ -65,14 +70,11 @@ public class OAuth2Client_ClientCredentials_GoogleCLSAServlet extends HttpServle
 						
 						// ファイルを挿入
 						File body = new File();
-						//タイムスタンプをファイル名に押すように追記
-						Date date = new Date();
-						SimpleDateFormat sdf = new SimpleDateFormat("yyyy'-'MM'-'dd' 'HH':'mm':'ss");
-						body.setTitle("DriveDocument:" + sdf.format(date));
+						body.setTitle(fileName);
 						body.setDescription("A test document");
-						body.setMimeType("text/plain");
+						body.setMimeType(fItem.getContentType());
 						
-						FileContent mediaContent = new FileContent("text/plain", fileContent);
+						FileContent mediaContent = new FileContent(fItem.getContentType(), fileContent);
 						try {
 							
 							File file = service.files().insert(body, mediaContent).execute();
@@ -80,7 +82,7 @@ public class OAuth2Client_ClientCredentials_GoogleCLSAServlet extends HttpServle
 							
 							// アップロードファイルを自分のアカウントに共有
 							Permission newPermission = new Permission();
-							newPermission.setValue(OAuthConstants.MY_ACCOUT_EMAIL);
+							newPermission.setValue(oauthDetails.getGoogleMyAccountEmail());
 							newPermission.setType("user");
 							newPermission.setRole("reader");
 							service.permissions().insert(file.getId(), newPermission).execute();
@@ -119,24 +121,26 @@ public class OAuth2Client_ClientCredentials_GoogleCLSAServlet extends HttpServle
 	private Drive getDriveService() {
 
 		try {
+			OAuth2Details oauthDetails = oauthSystem.getOauthDetails();
+
 			// 新規認証APIクライアントを作成
 			HttpTransport httpTransport = GoogleNetHttpTransport.newTrustedTransport();
 			JacksonFactory jsonFactory = JacksonFactory.getDefaultInstance();
 			
 			// プロパティファイルのパスを取得する
 			ServletContext context = this.getServletContext();
-			String keyfilePath = context.getRealPath(OAuthConstants.SERVICE_KEYFILE_PATH);
+			String keyfilePath = context.getRealPath(oauthDetails.getGoogleServiceKeyfilePath());
 			
 			// Build service account credential.
 			GoogleCredential credential = new GoogleCredential.Builder().setTransport(httpTransport)
 				.setJsonFactory(jsonFactory)
-				.setServiceAccountId(OAuthConstants.SERVICE_ACCOUNT_EMAIL)
+				.setServiceAccountId(oauthDetails.getGoogleServiceAccountEmail())
 				.setServiceAccountScopes(Collections.singleton(DriveScopes.DRIVE))
 				.setServiceAccountPrivateKeyFromP12File(new java.io.File(keyfilePath))
 				.build();
 			
 			Drive service = new Drive.Builder(httpTransport, jsonFactory, null)
-				.setApplicationName(OAuthConstants.SERVICE_APPNAME)
+				.setApplicationName(oauthDetails.getGoogleServiceAppName())
 				.setHttpRequestInitializer(credential)
 				.build();
 			
